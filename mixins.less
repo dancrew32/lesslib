@@ -1,6 +1,33 @@
 // LESS Mixin Library
 // (CB = Cross Browser)
 
+// i18n Layout version of left/right dependant properties
+@direction: ltr;
+@dir: left;
+@dirOp: right;
+
+// Margin (CB) (to use: .margin(@dir, 20px); or .margin(@dirOp, 0px))
+.margin(left, @dist: @gutter) {
+    margin-left: @dist;
+}
+.margin(right, @dist: @gutter) {
+    margin-right: @dist;
+}
+
+// Padding (CB)
+.padding(left, @dist: @gutter) {
+    padding-left: @dist;
+}
+.padding(right, @dist: @gutter) {
+    padding-right: @dist;
+}
+.lr(left, @dist: 0) {
+	left: @dist;
+}
+.lr(right, @dist: 0) {
+	right: @dist;
+}
+
 // Clearfix (CB)
 .clearfix {
 	zoom: 1;
@@ -24,24 +51,24 @@
 
 // TODO: breakouts for separate border radiuses
 .border-radius(@radius: 10px) {
-	-khtml-border-radius:@radius;
-	-moz-border-radius:@radius;
-	-webkit-border-radius:@radius;
-	border-radius:@radius;
+	-khtml-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
 }
 
 // Center Block Element (CB)
 .center {
-	margin-right:auto;
-	margin-left:auto;
-	text-align:center;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
 }
 
 // TODO: add inset
 ._boxshadow(@offsetTop: 1px, @offsetLeft: 0, @blur: 2px, @color: rgba(0,0,0,0.15)) {
-	box-shadow:@offsetTop @offsetLeft @blur @color;
-	-moz-box-shadow:@offsetTop @offsetLeft @blur @color;
-	-webkit-box-shadow:@offsetTop @offsetLeft @blur @color;
+	box-shadow: @offsetTop @offsetLeft @blur @color;
+	-moz-box-shadow: @offsetTop @offsetLeft @blur @color;
+	-webkit-box-shadow: @offsetTop @offsetLeft @blur @color;
 }
 
 // TODO: check CB
@@ -54,9 +81,9 @@
 
 // Min-Height (CB)
 .minHeight(@height) {
-	min-height:@height;
-	height:auto !important;
-	height:@height;
+	min-height: @height;
+	height: auto !important;
+	height: @height;
 }
 
 // Rotate TODO: Check CB
@@ -68,30 +95,30 @@
 }
 
 .wordWrap {
-	white-space:pre; 
-	white-space:pre-wrap;
-	white-space:pre-line;
-	word-wrap:break-word;
+	white-space: pre; 
+	white-space: pre-wrap;
+	white-space: pre-line;
+	word-wrap: break-word;
 }
 
 // Allow IE6 to render 24bit png
 .ie6-pngfix(@png) {
-	background:transparent;
+	background: transparent;
 	filter: e(%("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='%d', sizingMethod='scale')", @png));
 }
 
 // Display a list of links horizontally (CB) 
 .horizontal {
 	ul, ol {
-		display:block;
-		margin-left:0;
+		display: block;
+		margin-left: 0;
 	}
 	li {
-		display:inline;
-		float:left;
+		display: inline;
+		float: left;
 	}
 	a {
-		display:block;
-		float:left;
+		display: block;
+		float: left;
 	}
 }
