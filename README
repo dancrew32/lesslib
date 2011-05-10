@@ -1,0 +1,12 @@
+LessLib is a collection of mixins for Less.
+
+The goal is to equalize every different css property across as many
+browsers as possible. This will assist in eliminating the tedious
+work involved in updating different vendor prefixes for css3 and 
+make it easy to create cross-browser compatible styles.
+
+Stretch goals for this library will be built in layout reversing
+methods that will assist in automatically internationalizing 
+websites. (e.g. setting vars for left/right/ltr/rtl and swapping
+them for margin-left, margin-right, padding-left, padding-right, 
+left, right, direction, floats, etc...
