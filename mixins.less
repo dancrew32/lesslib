@@ -1,4 +1,7 @@
-// Clearfix
+// LESS Mixin Library
+// (CB = Cross Browser)
+
+// Clearfix (CB)
 .clearfix {
 	zoom: 1;
 	&:before, &:after {
@@ -8,4 +11,13 @@
 	&:after {
 		clear: both;
 	}
+}
+
+// Opacity (CB)
+.opacity(@value) {
+	opacity: @value / 100; // CSS standard
+	-khtml-opacity: @value / 100; // some pre-2004 browsers
+	-moz-opacity: @value / 100; // really old FF versions
+	-ms-filter: %('alpha(opacity=%s)', @value); // some IE versions
+	filter: e(%("alpha(opacity=%s)", @value)); // most other IE versions
 }
