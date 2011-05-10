@@ -21,3 +21,77 @@
 	-ms-filter: %('alpha(opacity=%s)', @value); // some IE versions
 	filter: e(%("alpha(opacity=%s)", @value)); // most other IE versions
 }
+
+// TODO: breakouts for separate border radiuses
+.border-radius(@radius: 10px) {
+	-khtml-border-radius:@radius;
+	-moz-border-radius:@radius;
+	-webkit-border-radius:@radius;
+	border-radius:@radius;
+}
+
+// Center Block Element (CB)
+.center {
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+}
+
+// TODO: add inset
+._boxshadow(@offsetTop: 1px, @offsetLeft: 0, @blur: 2px, @color: rgba(0,0,0,0.15)) {
+	box-shadow:@offsetTop @offsetLeft @blur @color;
+	-moz-box-shadow:@offsetTop @offsetLeft @blur @color;
+	-webkit-box-shadow:@offsetTop @offsetLeft @blur @color;
+}
+
+// TODO: check CB
+.gradient (@from: #FFFFFF, @to: #EDEDED) {
+    background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+    background: -moz-linear-gradient(top,  @from,  @to);
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d,endColorstr=%d)", @from, @to));
+    -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d, endColorstr=%d)", @from, @to);
+}
+
+// Min-Height (CB)
+.minHeight(@height) {
+	min-height:@height;
+	height:auto !important;
+	height:@height;
+}
+
+// Rotate TODO: Check CB
+.rotate(@deg: 35){
+	-moz-transform: e(%("rotate(%ddeg)", @deg));
+	-webkit-transform: e(%("rotate(%ddeg)", @deg));
+	-o-transform: e(%("rotate(%ddeg)", @deg));
+	transform: e(%("rotate(%ddeg)", @deg));
+}
+
+.wordWrap {
+	white-space:pre; 
+	white-space:pre-wrap;
+	white-space:pre-line;
+	word-wrap:break-word;
+}
+
+// Allow IE6 to render 24bit png
+.ie6-pngfix(@png) {
+	background:transparent;
+	filter: e(%("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='%d', sizingMethod='scale')", @png));
+}
+
+// Display a list of links horizontally (CB) 
+.horizontal {
+	ul, ol {
+		display:block;
+		margin-left:0;
+	}
+	li {
+		display:inline;
+		float:left;
+	}
+	a {
+		display:block;
+		float:left;
+	}
+}
