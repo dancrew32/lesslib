@@ -111,14 +111,14 @@
 .horizontal {
 	ul, ol {
 		display: block;
-		margin-left: 0;
+		.margin(@dir, 0);
 	}
 	li {
 		display: inline;
-		float: left;
+		float: @dir;
 	}
 	a {
 		display: block;
-		float: left;
+		float: @dir;
 	}
 }
