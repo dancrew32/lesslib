@@ -107,12 +107,26 @@
 	height: @height;
 }
 
+// Resize (make an element resizable)
+.resize(@value: both) {
+	-webkit-resize: @value; 
+	-moz-resize: @value; 
+	resize: @value; 
+}
+
 // Rotate TODO: Check CB
 .rotate(@deg: 35){
 	-moz-transform: e(%("rotate(%ddeg)", @deg));
 	-webkit-transform: e(%("rotate(%ddeg)", @deg));
 	-o-transform: e(%("rotate(%ddeg)", @deg));
 	transform: e(%("rotate(%ddeg)", @deg));
+}
+
+// Transform
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	transform: @params;
 }
 
 // Force word wrap on single non-breaking strings
@@ -143,4 +157,9 @@
 		display: block;
 		float: @dir;
 	}
+}
+
+// TODO: Grid/Columns system?
+.columns(@count: 3, @gutter: 10px) {
+	
 }
