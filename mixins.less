@@ -21,6 +21,8 @@
 .padding(right, @dist: @gutter) {
     padding-right: @dist;
 }
+
+// Left/Right (CB) (.lr(@dir, 10px) == left:10px; or right:10px based on @dir)
 .lr(left, @dist: 0) {
 	left: @dist;
 }
@@ -42,11 +44,11 @@
 
 // Opacity (CB)
 .opacity(@value) {
-	opacity: @value / 100; // CSS standard
-	-khtml-opacity: @value / 100; // some pre-2004 browsers
-	-moz-opacity: @value / 100; // really old FF versions
-	-ms-filter: %('alpha(opacity=%s)', @value); // some IE versions
-	filter: e(%("alpha(opacity=%s)", @value)); // most other IE versions
+	opacity: @value / 100;
+	-khtml-opacity: @value / 100;
+	-moz-opacity: @value / 100;
+	-ms-filter: %('alpha(opacity=%s)', @value);
+	filter: e(%("alpha(opacity=%s)", @value));
 }
 
 // TODO: breakouts for separate border radiuses
@@ -97,6 +99,7 @@
 	filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)", @startColor, @endColor));
 	-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))", @startColor, @endColor);
 }
+
 // Min-Height (CB)
 .min-height(@height) {
 	min-height: @height;
@@ -112,6 +115,7 @@
 	transform: e(%("rotate(%ddeg)", @deg));
 }
 
+// Force word wrap on single non-breaking strings
 .word-wrap {
 	white-space: pre; 
 	white-space: pre-wrap;
