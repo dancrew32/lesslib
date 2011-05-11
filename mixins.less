@@ -65,22 +65,40 @@
 }
 
 // TODO: add inset
-._boxshadow(@offsetTop: 1px, @offsetLeft: 0, @blur: 2px, @color: rgba(0,0,0,0.15)) {
+.box-shadow(@offsetTop: 1px, @offsetLeft: 0, @blur: 2px, @color: rgba(0,0,0,0.15)) {
 	box-shadow: @offsetTop @offsetLeft @blur @color;
 	-moz-box-shadow: @offsetTop @offsetLeft @blur @color;
 	-webkit-box-shadow: @offsetTop @offsetLeft @blur @color;
 }
 
-// TODO: check CB
-.gradient (@from: #FFFFFF, @to: #EDEDED) {
-    background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
-    background: -moz-linear-gradient(top,  @from,  @to);
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d,endColorstr=%d)", @from, @to));
-    -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d, endColorstr=%d)", @from, @to);
+// Gradients (CB) 
+// Horizontal Gradient
+.gradient-horizontal(@startColor: #555, @endColor: #333) {
+	background-color: @endColor;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(right center, @startColor, @endColor);
+	background-image: -moz-linear-gradient(right center, @startColor, @endColor);
+	background-image: -o-linear-gradient(left, @startColor, @endColor);
+	background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+	filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=1)", @startColor, @endColor));
+	-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=1))", @startColor, @endColor);
 }
 
+// Vertical Gradient
+.gradient-vertical(@startColor: #555, @endColor: #333) {
+	background-color: @endColor;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background-image: -webkit-linear-gradient(@startColor, @endColor);
+	background-image: -moz-linear-gradient(@startColor, @endColor);
+	background-image: -o-linear-gradient(top, @startColor, @endColor);
+	background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)", @startColor, @endColor));
+	-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))", @startColor, @endColor);
+}
 // Min-Height (CB)
-.minHeight(@height) {
+.min-height(@height) {
 	min-height: @height;
 	height: auto !important;
 	height: @height;
@@ -94,7 +112,7 @@
 	transform: e(%("rotate(%ddeg)", @deg));
 }
 
-.wordWrap {
+.word-wrap {
 	white-space: pre; 
 	white-space: pre-wrap;
 	white-space: pre-line;
