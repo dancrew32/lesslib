@@ -51,12 +51,32 @@
 	filter: e(%("alpha(opacity=%s)", @value));
 }
 
-// TODO: breakouts for separate border radiuses
+// Border-Radius (CB) (all corners have same radius)
 .border-radius(@radius: 10px) {
 	-khtml-border-radius: @radius;
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
 	border-radius: @radius;
+}
+
+// Multiple Border-Radii (CB) (all corners may have different radii)
+.border-radius-mult(@topright: 10px, @bottomright: 10px, @bottomleft: 10px, @topleft: 10px) {
+	-khtml-border-top-right-radius: @topright;
+	-khtml-border-bottom-right-radius: @bottomright;
+	-khtml-border-bottom-left-radius: @bottomleft;
+	-khtml-border-top-left-radius: @topleft;
+	-moz-border-top-right-radius: @topright;
+	-moz-border-bottom-right-radius: @bottomright;
+	-moz-border-bottom-left-radius: @bottomleft;
+	-moz-border-top-left-radius: @topleft;
+	-webkit-border-top-right-radius: @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius: @bottomleft;
+	-webkit-border-top-left-radius: @topleft;
+	border-top-right-radius: @topright;
+	border-bottom-right-radius: @bottomright;
+	border-bottom-left-radius: @bottomleft;
+	border-top-left-radius: @topleft;
 }
 
 // Center Block Element (CB)
@@ -66,7 +86,12 @@
 	text-align: center;
 }
 
-// TODO: add inset
+// TODO: RGBA
+.rgba {
+	// IE: convert rgba to AARRGGBB or accept second argument (fallback rgb?)
+}
+
+// TODO: add inset or make separate .inner-shadow
 .box-shadow(@offsetTop: 1px, @offsetLeft: 0, @blur: 2px, @color: rgba(0,0,0,0.15)) {
 	box-shadow: @offsetTop @offsetLeft @blur @color;
 	-moz-box-shadow: @offsetTop @offsetLeft @blur @color;
@@ -120,11 +145,22 @@
 	-moz-transform: @params;
 	-o-transform: @params;
 	transform: @params;
+	-ms-transform: @params;
 }
 
 // Rotate TODO: Check CB
 .rotate(@deg: 35){
 	.transform( e(%("rotate(%ddeg)", @deg) );
+	// TODO: IE radians version of rotate
+//	filter: progid:DXImageTransform.Microsoft.Matrix(
+//		M11=0, M12=0, M21=0, M22=0, sizingMethod='auto expand');
+	zoom: 1;
+}
+
+// Scale 
+.scale(@ratio: 1.5) {
+	.transform(scale: @ratio);	
+	// TODO: IE scale method
 }
 
 .transition(@prop: all, @time: .5s, @easing: ease-in-out){
