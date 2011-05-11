@@ -114,19 +114,24 @@
 	resize: @value; 
 }
 
-// Rotate TODO: Check CB
-.rotate(@deg: 35){
-	-moz-transform: e(%("rotate(%ddeg)", @deg));
-	-webkit-transform: e(%("rotate(%ddeg)", @deg));
-	-o-transform: e(%("rotate(%ddeg)", @deg));
-	transform: e(%("rotate(%ddeg)", @deg));
-}
-
 // Transform
 .transform(@params) {
 	-webkit-transform: @params;
 	-moz-transform: @params;
+	-o-transform: @params;
 	transform: @params;
+}
+
+// Rotate TODO: Check CB
+.rotate(@deg: 35){
+	.transform( e(%("rotate(%ddeg)", @deg) );
+}
+
+.transition(@prop: all, @time: .5s, @easing: ease-in-out){
+	transition: @prop @time @easing;
+	-moz-transition: @prop @time @easing;
+	-o-transition: @prop @time @easing;
+	-webkit-transition: @prop @time @easing;
 }
 
 // Force word wrap on single non-breaking strings
