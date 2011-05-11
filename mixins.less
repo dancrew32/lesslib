@@ -42,6 +42,13 @@
 	}
 }
 
+// Simple multi-border color
+.border(@topColor: #eee, @rightColor: #ccc, @bottomColor: #aaa, @leftColor: #ccc) {
+	border-width: 1px;	
+	border-style: solid;
+	border-color: @topColor @rightColor @bottomColor @leftColor;
+}
+
 // Opacity (CB)
 .opacity(@value) {
 	opacity: @value / 100;
