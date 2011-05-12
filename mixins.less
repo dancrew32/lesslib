@@ -64,7 +64,7 @@
 	opacity: @value / 100;
 	-khtml-opacity: @value / 100;
 	-moz-opacity: @value / 100;
-	-ms-filter: %('alpha(opacity=%s)', @value);
+	-ms-filter: %("progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)", @value);
 	filter: e(%("alpha(opacity=%s)", @value));
 }
 
