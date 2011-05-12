@@ -1,5 +1,7 @@
 // LESS Mixin Library
-// (CB = Cross Browser)
+	// (CB = Cross Browser)
+	// (LJS = Less.js style)
+	// (LST = Less Standard)
 
 // i18n Layout version of left/right dependant properties
 @direction: ltr;
@@ -64,8 +66,10 @@
 	opacity: @value / 100;
 	-khtml-opacity: @value / 100;
 	-moz-opacity: @value / 100;
-	-ms-filter: %("progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)", @value);
-	filter: e(%("alpha(opacity=%s)", @value));
+	-ms-filter: %("progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)", @value); // (LJS)
+	// -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="@value")"; // (LST)
+	filter: e(%("alpha(opacity=%s)", @value)); // (LJS)
+	// filter: alpha(opacity=@value); (LST)
 }
 
 // Border-Radius (CB) (all corners have same radius)
